@@ -19,9 +19,11 @@ client.on('interactionCreate', async interaction => {
         if(option === 'f') {
             const embed = new MessageEmbed().setTitle('Attachment').setImage('attachment://IMG_0962.jpg');           
             await interaction.reply({ embeds: [embed], files: ['./IMG_0962.jpg'] })
-        }else await interaction.reply(schedule(option))
+        } else await interaction.reply(schedule(option))
     }
-    if(commandName === 'schedule') await interaction.reply(schedule())
+    if(commandName === 'h') {
+        
+    }
 
 })
 

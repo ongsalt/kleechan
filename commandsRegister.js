@@ -28,15 +28,8 @@ const commands = [
                     value: 'f'
                 }
             )
-            // .addChoices([
-            //     SlashCommandStringOption('p', 'ก่อนหน้า'),
-            //     SlashCommandStringOption('n', 'ถัดไป'),
-            //     SlashCommandStringOption('c', 'ปัจจุบัน')
-            // ])
     ),
-    // [p] ก่อนหน้า   [n] ถัดไป   [default: c] ปัจจุบัน
-    new SlashCommandBuilder().setName('homework').setDescription('#todo set homework'),
-    new SlashCommandBuilder().setName('h').setDescription('#todo'),
+    new SlashCommandBuilder().setName('h').setDescription('#todo')
 ]
     .map(command => command.toJSON())
 

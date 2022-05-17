@@ -37,9 +37,10 @@ function getSubject(option='c') {
     }
 
     let period = currentPeriod() + padding;
+
     if(period === 5) return 'พัก'
-    if(period <= 0) return 'ยังไม่เริ่ม'
-    if(period >= -1) return 'เลิกเรียน'
+    if(period <= 0) return 'นอกเวลาเรียน'
+    if(period >= -1) return 'นอกเวลาเรียน'
 
     period -= 1; // array start at 0
 

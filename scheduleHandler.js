@@ -6,7 +6,7 @@ function getTime() {
     return now.getHours() + now.getMinutes()/100
 }
 
-function currenrPeriod() {
+function currentPeriod() {
     const time = getTime()
     if(time < 8.3) return 0
     if(time < 9.2) return 1
@@ -26,4 +26,14 @@ function getDay() {
     return now // 0 is sunday 6 is saturday
 }
 
-console.log(currenrPeriod())
+function getSubject() {
+    const period = currentPeriod()
+    const day = getDay()
+    if(day === 0 || day === 6) return 'วันหยุด'
+    if(period === 5) return 'พัก'
+    if(period === 0) return 'ยังไม่เริ่ม'
+    if(period === -1) return 'เลิก'
+    return schedule[day][period]
+}
+
+console.log(currentPeriod())

@@ -1,4 +1,5 @@
-schedule = require('./schedule.json')
+const schedule = require('./schedule.json')
+const linkObj = require('./linkObj.json')
 
 function getTime() {
     const now = new Date();
@@ -26,18 +27,42 @@ function getDay() {
     return now // 0 is sunday 6 is saturday
 }
 
-function getSubject() {
-    const period = currentPeriod()
-    const day = getDay()
-    if(day === 0 || day === 6) return 'วันหยุด'
+function getSubject(option='c') {
+    let padding = 0;
+    
+    if(option==='n'){
+        padding = 1
+    } else if(option === 'p') {
+        padding = -1
+    }
+
+    let period = currentPeriod() + padding;
     if(period === 5) return 'พัก'
-    if(period === 0) return 'ยังไม่เริ่ม'
-    if(period === -1) return 'เลิก'
+    if(period <= 0) return 'ยังไม่เริ่ม'
+    if(period >= -1) return 'เลิกเรียน'
+
+    period -= 1; // array start at 0
+
+    const day = getDay() - 1; // also array start at 0
+    if(day === 0 || day === 6) return 'วันหยุด'
+
+    console.log({ day, period })
     return formatSubject(schedule[day][period])
 }
 
 function formatSubject({teacher, room, subjectId, subject}) {
-    return `วิชา ${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room}`
+    const link = linkObj[subjectId];
+    // console.log({
+    //     subjectId,
+    //     link: linkObj[subjectId],
+    //     linkObj
+    // })
+    if(Math.random() < 0.1){ // rickroller
+        return `${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room} \n [${link}](https://www.youtube.com/watch?v=dQw4w9WgXcQ)`    
+    }
+    return `${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room} \n ${link}`
 }
+
+
 
 module.exports = getSubject

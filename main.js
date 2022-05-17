@@ -1,6 +1,6 @@
 const { Client, Intents, MessageEmbed } = require('discord.js');
 const schedule = require('./scheduleHandler')
-require('dotenv').config(); //initialize dotenv
+require('dotenv').config();
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
 
@@ -25,5 +25,5 @@ client.on('interactionCreate', async interaction => {
 
 })
 
-//make sure this line is the last line
-client.login(process.env.CLIENT_TOKEN); //login bot using token
+
+client.login(process.env.CLIENT_TOKEN);

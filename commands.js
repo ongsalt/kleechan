@@ -6,6 +6,10 @@ require('dotenv').config();
 const commands = [
     new SlashCommandBuilder().setName('test').setDescription('bruh'),
     new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
+    new SlashCommandBuilder().setName('schedule').setDescription('ตารางเรียน'),
+    new SlashCommandBuilder().setName('s').setDescription('ตารางเรียน'),
+    new SlashCommandBuilder().setName('homework').setDescription('#todo set homework'),
+    new SlashCommandBuilder().setName('h').setDescription('#todo'),
 ]
     .map(command => command.toJSON())
 

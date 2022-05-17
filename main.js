@@ -1,4 +1,5 @@
 const { Client, Intents } = require('discord.js');
+const schedule = require('./scheduleHandler')
 require('dotenv').config(); //initialize dotenv
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
@@ -13,6 +14,8 @@ client.on('interactionCreate', async interaction => {
     const { commandName } = interaction;
     if(commandName === 'ping') await interaction.reply('pong')
     if(commandName === 'test') await interaction.reply('Bruh')
+    if(commandName === 's') await interaction.reply(schedule())
+    if(commandName === 'schedule') await interaction.reply(schedule())
 
 })
 

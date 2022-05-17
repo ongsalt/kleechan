@@ -33,7 +33,11 @@ function getSubject() {
     if(period === 5) return 'พัก'
     if(period === 0) return 'ยังไม่เริ่ม'
     if(period === -1) return 'เลิก'
-    return schedule[day][period]
+    return formatSubject(schedule[day][period])
 }
 
-console.log(currentPeriod())
+function formatSubject({teacher, room, subjectId, subject}) {
+    return `วิชา ${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room}`
+}
+
+module.exports = getSubject

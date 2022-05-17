@@ -30,6 +30,7 @@ function getDay() {
 function getSubject(option='c') {
     let padding = 0;
     
+    console.log(`[scheduleHandler/getSubject] option: ${option}`)
     if(option==='n'){
         padding = 1
     } else if(option === 'p') {

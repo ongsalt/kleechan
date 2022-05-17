@@ -15,14 +15,15 @@ client.on('interactionCreate', async interaction => {
     if(commandName === 'ping') await interaction.reply('Hello from heroku')
     if(commandName === 'test') await interaction.reply('Bruh')
     if(commandName === 's') {
-        const option = interaction.options.getString('เลือกคาบ')
+        const option = interaction.options.getString('argument') // เลือกคาบ
+        console.log(option)
         if(option === 'f') {
             const embed = new MessageEmbed().setTitle('Attachment').setImage('attachment://IMG_0962.jpg');           
             await interaction.reply({ embeds: [embed], files: ['./IMG_0962.jpg'] })
         } else await interaction.reply(schedule(option))
     }
     if(commandName === 'h') {
-        
+        await interaction.reply('ไม่ทำที')
     }
 
 })

@@ -7,7 +7,7 @@ const commands = [
     new SlashCommandBuilder().setName('test').setDescription('bruh'),
     new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
     new SlashCommandBuilder().setName('s').setDescription('ตารางเรียน').addStringOption( option => 
-        option.setName('เลือกคาบ')
+        option.setName('argument') //  เลือกคาบ
             .setDescription('Default คือคาบปัจจุบัน')
             .setRequired(false)
             .addChoices(

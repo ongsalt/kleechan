@@ -19,10 +19,10 @@
             "subject": "อ30103"
         },
         {
-            "teacher": "เกสิณี",
+            "teacher": "สิริลักษณ์",
             "room": "2406",
-            "subjectId": "อ30103",
-            "subject": "อ30103"
+            "subjectId": "ท30103",
+            "subject": "ไทย"
 
         },
         {
@@ -126,28 +126,28 @@
     ],
     [
         {
-            "teacher": "อาภาศรี",
-            "room": "1210",
-            "subjectId": "ว30202",
-            "subject": "ว30202"
-        },
-        {
-            "teacher": "อาภาศรี",
-            "room": "1210",
-            "subjectId": "ว30202",
-            "subject": "ว30202"
-        },
-        {
-            "teacher": "เกสิณี",
+            "teacher": "สิริลักษณ์",
             "room": "2406",
-            "subjectId": "อ30103",
-            "subject": "อ30103"
+            "subjectId": "ท30103",
+            "subject": "ไทย"
         },
         {
-            "teacher": "เกสิณี",
+            "teacher": "กานต์สินี",
             "room": "2406",
-            "subjectId": "อ30103",
-            "subject": "อ30103"
+            "subjectId": "",
+            "subject": "แนะแนว"
+        },
+        {
+            "teacher": "สมศักดิ์",
+            "room": "2406",
+            "subjectId": "ค30104",
+            "subject": "คณิต"
+        },
+        {
+            "teacher": "อุบลวรรณ",
+            "room": "2406",
+            "subjectId": "จ30201",
+            "subject": "จีน"
 
         },
         {
@@ -159,31 +159,31 @@
         },
         
         {
-            "teacher": "อุบลวรรณ",
+            "teacher": "เกสิณี",
             "room": "2406",
-            "subjectId": "จ30201",
-            "subject": "จีน"
+            "subjectId": "อ30103",
+            "subject": "อ30103"
 
         },
         {
-            "teacher": "สมศักดิ์",
-            "room": "2406",
-            "subjectId": "ค30233",
-            "subject": "ค30233"
+            "teacher": "แต่ละสาชาวิชา",
+            "room": "ของแต่ละสาขาวิชา",
+            "subjectId": "",
+            "subject": "วิชาเลือกเพิ่มเติมกลุ่มสอง"
 
         },
         {
-            "teacher": "เอนก",
-            "room": "2406",
-            "subjectId": "ว30282",
-            "subject": "คอม A"
+            "teacher": "แต่ละสาชาวิชา",
+            "room": "ของแต่ละสาขาวิชา",
+            "subjectId": "",
+            "subject": "วิชาเลือกเพิ่มเติมกลุ่มสอง"
 
         },
         {
-            "teacher": null,
-            "room": null,
-            "subjectId": null,
-            "subject": "ชุมนุม"
+            "teacher": "แต่ละสาชาวิชา",
+            "room": "ของแต่ละสาขาวิชา",
+            "subjectId": "",
+            "subject": "วิชาเลือกเพิ่มเติมกลุ่มสอง"
 
         }
     ],

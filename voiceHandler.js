@@ -1,33 +1,30 @@
-const { joinVoiceChannel } = require('@discordjs/voice');
-const { createAudioPlayer, createAudioResource, getVoiceConnection, joinVoiceChannel  } = require('@discordjs/voice');
+const { createAudioPlayer, createAudioResource, getVoiceConnection, joinVoiceChannel, AudioPlayerStatus  } = require('@discordjs/voice');
+const { join } = require('node:path')
+
+const connect = (channel) => joinVoiceChannel({
+    channelId: channel.id,
+    guildId: channel.guild.id,
+    adapterCreator: channel.guild.voiceAdapterCreator
+})
 
 
-if(!connection){
-    const connectionConfig = Object.assign({}, {
-        channelId: interaction.channel.id,
-        guildId: interaction.channel.guild.id,
-        adapterCreator: interaction.channel.guild.voiceAdapterCreator
-    })
-    const connection = joinVoiceChannel({
-        channelId: interaction.channel.id,
-        guildId: interaction.channel.guild.id,
-        adapterCreator: interaction.channel.guild.voiceAdapterCreator
-    })
-}
-const player = createAudioPlayer();
-const resource = createAudioResource(join(__dirname, 'OhayoOniiChan.mp3'));
-try {
-    player.play(resource);
-    connection.subscribe(player)
-    setTimeout(() => {
+const play = (connection) => {
+    const player = createAudioPlayer();
+    const resource = createAudioResource(join(__dirname, 'OhayoOniiChan.mp3'), {
+        inlineVolume: true
+    });
+    resource.volume.setVolume(0.3)
+    try {
+        player.play(resource);
+        connection.subscribe(player)
+        player.on(AudioPlayerStatus.Paused, () => {
+            player.stop()
+            connection.destroy();
+        })
+    } catch {
         player.stop()
         connection.destroy();
-    }, 25000)
-} catch {
-    player.stop()
-    connection.destroy();
+    }
 }
 
-await interaction.reply('set event interval: Ohayo ')
-
-module.exports = { connect }
+module.exports = { connect, play }

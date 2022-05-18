@@ -4,15 +4,20 @@ const { Client, Intents, MessageEmbed } = require('discord.js');
 const { VoiceConnectionStatus, getVoiceConnection  } = require('@discordjs/voice');
 
 const schedule = require('./scheduleHandler')
-const { connect, play } = require('./voiceHandler')
+const { ohayo, autoOhayo } = require('./voiceHandler')
 require('dotenv').config();
 
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_VOICE_STATES);
 const client = new Client({ intents: myIntents })
 
-client.once('ready', () => {
-  console.log(`Ready`);
+let voiceChannel; 
+
+client.once('ready', async () => {
+    console.log(`Ready`);
+    voiceChannel = client.channels.cache.find(c => c.id === '933913606863589421')
+    await autoOhayo(voiceChannel)
+    // console.dir(client.channels.cache.find(id => id === '933913606863589421'), {depth: null})
 });
 
 client.on('interactionCreate', async interaction => {
@@ -33,15 +38,13 @@ client.on('interactionCreate', async interaction => {
         await interaction.reply('ไม่ทำที')
     }
     if(commandName === 'r') {
-
-        connect(interaction.channel)
-        const connection = getVoiceConnection(interaction.channel.guild.id)
-        connection.on(VoiceConnectionStatus.Ready, () => play(connection))
-
+        ohayo(interaction.channel) // voiceChannel
         await interaction.reply('test ohayo noise')
     }
 
+
 })
+
 
 
 client.login(process.env.CLIENT_TOKEN);

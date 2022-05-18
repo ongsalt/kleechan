@@ -4,7 +4,9 @@ const linkObj = require('./linkObj.json')
 function getTime() {
     const now = new Date();
     // console.log(now.getHours(), now.getMinutes())
-    return now.getHours() + now.getMinutes()/100
+    const hours = now.getUTCHours() + 7 // cuz time zone exist 
+    const minutes = now.getUTCMinutes()
+    return hours + minutes/100
 }
 
 function currentPeriod() {

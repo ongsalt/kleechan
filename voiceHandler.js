@@ -44,7 +44,7 @@ const autoOhayo = (channel) => {
     const alertTimes = [505, 555, 605, 655, 705, 755, 805, 855, 905, 955];
 
     if (955 - minutes < 0) {
-        console.log('หมดวันแล้ว') 
+        console.log('[voiceHandler/autoOhayo] หมดวันแล้ว') 
         return
     }
     let firstPadding;

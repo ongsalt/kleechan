@@ -55,11 +55,11 @@ function getSubject(option='n') { // change default option is next
     console.log({ day, period })
     return formatSubject({
         ...schedule[day][period],
-        padding
+        option
     })
 }
 
-function formatSubject({teacher, room, subjectId, subject, padding}) {
+function formatSubject({teacher, room, subjectId, subject, option}) {
     let link = linkObj[subjectId];
     // console.log({
     //     subjectId,
@@ -67,11 +67,18 @@ function formatSubject({teacher, room, subjectId, subject, padding}) {
     //     linkObj
     // })
     let paddingText;
-    switch(padding){
-        case 0: paddingText = 'คาบเรียนปัจจุบัน'
-        case 1: paddingText = 'คาบเรียนถัดไป'
-        case -1: paddingText = 'คาบเรียนก่อนหน้า'
-        default: paddingText = 'คาบเรียนปัจจุบัน'
+    console.log(`[scheduleHandler/formatSubject] ${option}`)
+    switch(option){
+        case 'c':
+            paddingText = 'คาบเรียนปัจจุบัน';
+            break;
+        case 'n':
+            paddingText = 'คาบเรียนถัดไป';
+            break;
+        case 'p': 
+            paddingText = 'คาบเรียนก่อนหน้า'
+            break;
+        default : paddingText = 'คาบเรียนถัดไป'
     }
     if(Math.random() < 0.1){ // rickroller
         link = `[${link}](https://www.youtube.com/watch?v=dQw4w9WgXcQ)`  

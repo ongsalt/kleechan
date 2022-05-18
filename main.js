@@ -19,7 +19,8 @@ client.on('interactionCreate', async interaction => {
         if(option === 'f') {
             const embed = new MessageEmbed().setTitle('Attachment').setImage('attachment://img/IMG_0962.jpg');           
             await interaction.reply({ embeds: [embed], files: ['./img/IMG_0962.jpg'] })
-        } else await interaction.reply(schedule(option))
+        } else if(option === null) await interaction.reply(schedule()) 
+        else await interaction.reply(schedule(option))
     }
     if(commandName === 'h') {
         await interaction.reply('ไม่ทำที')

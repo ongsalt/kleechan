@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const commands = [
     new SlashCommandBuilder().setName('test').setDescription('bruh'),
-    new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
+    new SlashCommandBuilder().setName('ping').setDescription('PIng to the server!'),
     new SlashCommandBuilder().setName('s').setDescription('ตารางเรียน').addStringOption( option => 
         option.setName('เลือกคาบ') //  argument
             .setDescription('Default คือคาบปัจจุบัน')

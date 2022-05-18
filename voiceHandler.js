@@ -39,7 +39,7 @@ const play = (connection) => {
 const autoOhayo = (channel) => {
     // add first padd, then use setInterval
     const now = new Date();
-    const minutes = (now.getUTCHours() + 4) * 60 + now.getUTCMinutes();
+    const minutes = (now.getUTCHours() + 7) * 60 + now.getUTCMinutes(); // cuz timezone exist
     const minutesLeft = 955 - minutes + 10;
     const alertTimes = [505, 555, 605, 655, 705, 755, 805, 855, 905, 955];
 

@@ -4,7 +4,7 @@ const { join } = require('node:path');
 const { createAudioPlayer, createAudioResource, getVoiceConnection, joinVoiceChannel  } = require('@discordjs/voice');
 
 const schedule = require('./scheduleHandler')
-const { connect, play } = require('./voiceHandler')
+// const { connect, play } = require('./voiceHandler')
 require('dotenv').config();
 
 const myIntents = new Intents();

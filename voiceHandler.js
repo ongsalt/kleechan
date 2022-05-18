@@ -1,13 +1,33 @@
 const { joinVoiceChannel } = require('@discordjs/voice');
-require('dotenv').config()
+const { createAudioPlayer, createAudioResource, getVoiceConnection, joinVoiceChannel  } = require('@discordjs/voice');
 
-const connect = (channel) => {
-    return joinVoiceChannel({
-        channelId: channel.id,
-        guildId: channel.guild.id,
-        adapterCreator: channel.guild.voiceAdapterCreator
+
+if(!connection){
+    const connectionConfig = Object.assign({}, {
+        channelId: interaction.channel.id,
+        guildId: interaction.channel.guild.id,
+        adapterCreator: interaction.channel.guild.voiceAdapterCreator
     })
-    // connection.subscribe(audioPlayer);
+    const connection = joinVoiceChannel({
+        channelId: interaction.channel.id,
+        guildId: interaction.channel.guild.id,
+        adapterCreator: interaction.channel.guild.voiceAdapterCreator
+    })
 }
+const player = createAudioPlayer();
+const resource = createAudioResource(join(__dirname, 'OhayoOniiChan.mp3'));
+try {
+    player.play(resource);
+    connection.subscribe(player)
+    setTimeout(() => {
+        player.stop()
+        connection.destroy();
+    }, 25000)
+} catch {
+    player.stop()
+    connection.destroy();
+}
+
+await interaction.reply('set event interval: Ohayo ')
 
 module.exports = { connect }

@@ -96,6 +96,8 @@ function formatSubject({ teacher, room, subjectId, subject, option }) {
     let desc = '';
 
     if (teacher.includes('สาขา')) desc += 'แยกย้ายกันไปเรียนตามสาขาวิชา'
+    if (subject === 'โครงงาน') desc += 'แยกย้ายกันไปตามสาขาวิชา'
+    if (subject === 'ว่าง') desc += 'คาบว่างงงงงงงงงงง'
     else desc += `อาจารย์${teacher} ที่ห้อง ${room}`
 
     //dev

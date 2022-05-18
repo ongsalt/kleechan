@@ -12,7 +12,7 @@ client.on('interactionCreate', async interaction => {
     if(!interaction.isCommand()) return;
     // console.dir(interaction, {depth: null})
     const { commandName } = interaction;
-    if(commandName === 'ping') await interaction.reply(process.env.device || 'Hello from heroku')
+    if(commandName === 'ping') await interaction.reply(`Hello from ${process.env.device || 'Heroku'}`)
     if(commandName === 'test') await interaction.reply('Bruh')
     if(commandName === 's') {
         const option = interaction.options.getString('argument') // เลือกคาบ

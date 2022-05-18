@@ -27,21 +27,25 @@ function getDay() {
     return now // 0 is sunday 6 is saturday
 }
 
-function getSubject(option='c') {
-    let padding = 0;
+function getSubject(option='n') { // change default option is next
+    let padding = 1;
     
     console.log(`[scheduleHandler/getSubject] option: ${option}`)
     if(option==='n'){
         padding = 1
     } else if(option === 'p') {
         padding = -1
+    } else if(option === 'c') {
+        padding = 0
     }
 
     let period = currentPeriod() + padding;
+    console.log(`[scheduleHandler/period] ${period} ${padding}`)
+
 
     if(period === 5) return 'พัก'
-    if(period <= 0) return 'นอกเวลาเรียน'
-    if(period >= -1) return 'นอกเวลาเรียน'
+    if(period < 0) return 'นอกเวลาเรียน'
+    // if(period <= -1) return 'นอกเวลาเรียน'
 
     period -= 1; // array start at 0
 

@@ -13,10 +13,10 @@ const client = new Client({ intents: myIntents })
 
 let voiceChannel; 
 
-client.once('ready', async () => {
+client.once('ready', () => {
     console.log(`Ready`);
-    voiceChannel = client.channels.cache.find(c => c.id === '933913606863589421')
-    await autoOhayo(voiceChannel)
+    voiceChannel = client.channels.cache.find(c => c.id === process.env.CHANNEL_ID)
+    autoOhayo(voiceChannel)
     // console.dir(client.channels.cache.find(id => id === '933913606863589421'), {depth: null})
 });
 

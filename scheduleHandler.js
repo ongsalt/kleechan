@@ -53,20 +53,30 @@ function getSubject(option='n') { // change default option is next
     if(day === 0 || day === 6) return 'วันหยุด'
 
     console.log({ day, period })
-    return formatSubject(schedule[day][period])
+    return formatSubject({
+        ...schedule[day][period],
+        padding
+    })
 }
 
-function formatSubject({teacher, room, subjectId, subject}) {
-    const link = linkObj[subjectId];
+function formatSubject({teacher, room, subjectId, subject, padding}) {
+    let link = linkObj[subjectId];
     // console.log({
     //     subjectId,
     //     link: linkObj[subjectId],
     //     linkObj
     // })
-    if(Math.random() < 0.1){ // rickroller
-        return `${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room} \n [${link}](https://www.youtube.com/watch?v=dQw4w9WgXcQ)`    
+    let paddingText;
+    switch(padding){
+        case 0: paddingText = 'คาบเรียนปัจจุบัน'
+        case 1: paddingText = 'คาบเรียนถัดไป'
+        case -1: paddingText = 'คาบเรียนก่อนหน้า'
+        default: paddingText = 'คาบเรียนปัจจุบัน'
     }
-    return `${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room} \n ${link}`
+    if(Math.random() < 0.1){ // rickroller
+        link = `[${link}](https://www.youtube.com/watch?v=dQw4w9WgXcQ)`  
+    }
+    return `${paddingText} ${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room} \n ${link}`
 }
 
 

@@ -80,6 +80,9 @@ function formatSubject({teacher, room, subjectId, subject, option}) {
             break;
         default : paddingText = 'คาบเรียนถัดไป'
     }
+    if(link === undefined) {
+        link = 'ไม่มีลิงค์'
+    }
     if(Math.random() < 0.1){ // rickroller
         link = `[${link}](https://www.youtube.com/watch?v=dQw4w9WgXcQ)`  
     }

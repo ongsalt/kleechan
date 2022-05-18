@@ -29,6 +29,7 @@ const commands = [
                 }
             )
     ),
+    new SlashCommandBuilder().setName('r').setDescription('register voice channel'),
     new SlashCommandBuilder().setName('h').setDescription('#todo')
 ]
     .map(command => command.toJSON())

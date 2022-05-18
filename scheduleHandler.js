@@ -86,11 +86,16 @@ function formatSubject({teacher, room, subjectId, subject, option}) {
         link = 'ไม่มีลิงค์'
     }
     if(Math.random() < 0.1){ // rickroller
-        link = `[${link}](https://www.youtube.com/watch?v=dQw4w9WgXcQ)`  
+        link = rickroller(link)  
     }
     return `${paddingText} ${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room} \n ${link}`
 }
 
+function rickroller(link) {
+    // wait till message sent or 10 sec
+    // then edit link back
+    return `[${link}](https://www.youtube.com/watch?v=dQw4w9WgXcQ)`
+}
 
 
 module.exports = getSubject

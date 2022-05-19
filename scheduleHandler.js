@@ -9,7 +9,7 @@ function currentPeriod() {
     const alertTimes = [510, 560, 610, 660, 710, 760, 810, 860, 910, 960];
     
     let count = 0;
-    for(alertTime of alertTimes) {
+    for(const alertTime of alertTimes) {
         if(minutes < alertTime) return count;
         count++
     }
@@ -17,7 +17,7 @@ function currentPeriod() {
 }
 
 function getDay() {
-    const now = new Date().getDay();
+    const now = new Date().getUTCDay();
     return now // 0 is sunday 6 is saturday
 }
 
@@ -50,15 +50,14 @@ function getSubject(option = 'n') { // change default option is next
     }
 
     let period = currentPeriod() + padding - 1; // array start at 0
-    console.log(`[scheduleHandler/period] ${period} ${padding}`)
 
     if (period === 4) return { isEmbed: false, reply: 'พัก' } // 5
     if (period < 0) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
 
-    const day = getDay() - 1; // also, array start at 0
+    const day = getDay() - 1; // also, array start at 0 | Sun is 0, array start at Mon
     if (day === 0 || day === 6) return { isEmbed: false, reply: 'วันหยุด' }
 
-    console.log({ day, period })
+    console.log(`[scheduleHandler/period] day: ${day} period: ${period} padding: ${padding}`)
 
     return {
         isEmbed: true,
@@ -73,7 +72,7 @@ function getSubject(option = 'n') { // change default option is next
 function formatSubject({ teacher, room, subjectId, subject, option }) {
     let link = linkObj[subjectId];
     let paddingText;
-    console.log(`[scheduleHandler/formatSubject] option: ${option}`)
+
     // console.log(`[scheduleHandler/formatSubject] data: ${teacher} ${room} ${subjectId} ${subject}`)
     switch (option) {
         case 'c':

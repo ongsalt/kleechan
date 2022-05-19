@@ -7,6 +7,7 @@ const {
     VoiceConnectionStatus 
 } = require('@discordjs/voice');
 const { join } = require('node:path')
+require('dotenv').config()
 
 
 const connect = (channel) => joinVoiceChannel({
@@ -36,7 +37,7 @@ const play = (connection) => {
     }
 }
 
-const autoOhayo = (channel) => {
+const autoOhayo = (client) => {
     // add first padd, then use setInterval
     const now = new Date();
     const minutes = (now.getUTCHours() + 7) * 60 + now.getUTCMinutes(); // cuz timezone exist
@@ -48,16 +49,19 @@ const autoOhayo = (channel) => {
         return
     }
     let firstPadding;
-    for(alertTime of alertTimes) { // can optimize using some math
+    for(const alertTime of alertTimes) { // can optimize using some math
         if(minutes < alertTime) {
             firstPadding = alertTime - minutes
             break
         }
     }
 
-    // console.log(`[voiceHandler/autoOhayo] time until 505th minute ${firstPadding}`);
+    const channel = client.channels.cache.find(c => c.id === process.env.CHANNEL_ID)
+
+
+    console.log(`[voiceHandler/autoOhayo] will ohayo in ${firstPadding} minutes`);
     const interval = 50 * 60 * 1000; // 50 minutes -> millisec
-    console.log('[voiceHandler/autoOhayo] wait till first padding run');
+    // console.log('[voiceHandler/autoOhayo] wait till first padding run');
 
     setTimeout(() => {
         ohayo(channel);
@@ -65,8 +69,8 @@ const autoOhayo = (channel) => {
             // console.log('wait til connnection ready');
             ohayo(channel);
         }, interval); 
-        setTimeout(cancelInterval, minutesLeft)
-    }, firstPadding);
+        setTimeout(() => clearInterval(cancelInterval), minutesLeft)
+    }, firstPadding * 60 * 1000);
     return 
 } 
 

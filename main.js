@@ -12,9 +12,12 @@ const client = new Client({ intents: myIntents })
 let voiceChannel;
 
 client.once('ready', () => {
-    console.log(`Ready`);
-    voiceChannel = client.channels.cache.find(c => c.id === process.env.CHANNEL_ID)
-    autoOhayo(voiceChannel)
+    console.log(`[main/onceReady] Ready`);
+    // voiceChannel = client.channels.cache.find(c => c.id === process.env.CHANNEL_ID)
+    // migrate to voiceHandler -> timeBased event later
+    autoOhayo(client)
+    console.log('[main/onceReady] set up finished')
+
 });
 
 client.on('interactionCreate', async interaction => {
@@ -36,6 +39,7 @@ client.on('interactionCreate', async interaction => {
         ohayo(interaction.channel) // voiceChannel
         await interaction.reply('test ohayo noise')
     }
+    // console.log('[main/onInteractionCreate] ready')
 
 
 })

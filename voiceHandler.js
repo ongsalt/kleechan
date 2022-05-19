@@ -24,7 +24,7 @@ const play = (connection) => {
     const resource = createAudioResource(join(__dirname, 'OhayoOniiChan.mp3'), {
         inlineVolume: true
     });
-    resource.volume.setVolume(1)
+    resource.volume.setVolume(0.7)
     try {
         player.play(resource);
         connection.subscribe(player)

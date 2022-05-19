@@ -24,12 +24,20 @@ function getDay() {
 function getSubject(option = 'n') { // change default option is next
     let padding = 1;
     //dev
-    // const testObject = {
-    //     teacher: 'ดำรงศักดิ์ ศรีสวัสดิ์',
-    //     room: '2305',
-    //     subject: 'Test',
-    //     subjectId: '- Mathematics',
-    // }
+    const testObject = {
+        "teacher": null,
+        "room": null,
+        "subjectId": "โฮมรูม",
+        "subject": "โฮมรูม"
+    }
+
+    return {
+        isEmbed: true,
+        embed: formatSubject({
+            ...testObject,
+            option
+        })
+    }
 
     console.log(`[scheduleHandler/getSubject] option: ${option}`)
     if (option === 'n') {
@@ -75,46 +83,56 @@ function formatSubject({ teacher, room, subjectId, subject, option }) {
        if(teacher === 'จารุวัชร') link = linkObj['อ301031']
        else link = linkObj['อ301030']
     } else link = linkObj[subjectId];
-    let paddingText;
+    let paddingText = '';
 
+    if(process.env.device) {
+        paddingText += 'Test - '
+    }
     // console.log(`[scheduleHandler/formatSubject] data: ${teacher} ${room} ${subjectId} ${subject}`)
     switch (option) {
         case 'c':
-            paddingText = 'คาบเรียนปัจจุบัน';
+            paddingText += 'คาบเรียนปัจจุบัน';
             break;
         case 'n':
-            paddingText = 'คาบเรียนถัดไป';
+            paddingText += 'คาบเรียนถัดไป';
             break;
         case 'p':
-            paddingText = 'คาบเรียนก่อนหน้า'
+            paddingText += 'คาบเรียนก่อนหน้า'
             break;
-        default: paddingText = 'คาบเรียนถัดไป'
+        default: paddingText += 'คาบเรียนถัดไป'
     }
+    
+    let title = subject
+    let desc = '';
+
+    if(subjectId && subjectId != subject) title += ` ${subjectId}`
+
+    if (teacher && teacher.includes('สาขา')) desc += 'แยกย้ายกันไปเรียนตามสาขาวิชา'
+
+    if (subject === 'โครงงาน') desc += 'แยกย้ายกันไปตามสาขาวิชา'
+    else if (subject === 'ว่าง') desc += 'คาบว่างงงงงงงงงงง'
+    else if (subject === 'บรรยาย') desc += 'ฟังบรรยาย'
+    else if (subject === 'โฮมรูม') desc += 'พบครูที่ปรึกษา'
+    // else if (teacher && room) desc += `อาจารย์${teacher} ที่ห้อง ${room}`
+    else desc += `อาจารย์${teacher} ที่ห้อง ${room}`
 
     const embed = new MessageEmbed()
         .setColor('#2f61e0')
-        .setTitle(`${subject} ${subjectId}`)
+        .setTitle(title)
         .setAuthor({ name: paddingText })
-        
-    let desc = '';
 
-    if (teacher.includes('สาขา')) desc += 'แยกย้ายกันไปเรียนตามสาขาวิชา'
-    if (subject === 'โครงงาน') desc += 'แยกย้ายกันไปตามสาขาวิชา'
-    if (subject === 'ว่าง') desc += 'คาบว่างงงงงงงงงงง'
-    else desc += `อาจารย์${teacher} ที่ห้อง ${room}`
-
-    //dev
-    // link = rickroll
-
+    
     if (link) {
         if (Math.random() < 0.1  && option != null) link = rickroll
         embed.setURL(link);
+        desc += ` ${link}`
     } else {
         desc += '\n\n ไม่มีลิงค์';
         embed.setColor('#ed3e3e')
     }
-    desc += ` ${link}`
     embed.setDescription(desc)
+
+    if(process.env.device) embed.setColor('#f5da42')
 
     return embed
     // return `${paddingText} ${subject} ${subjectId} \n อาจารย์${teacher} ที่ห้อง ${room} \n ${link}`

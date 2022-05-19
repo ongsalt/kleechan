@@ -7,8 +7,11 @@ const {
     VoiceConnectionStatus 
 } = require('@discordjs/voice');
 const { join } = require('node:path')
-require('dotenv').config()
+const textToSpeech = require('@google-cloud/text-to-speech');
+const fs = require('fs');
+const util = require('util');
 
+require('dotenv').config()
 
 const connect = (channel) => joinVoiceChannel({
     channelId: channel.id,
@@ -79,6 +82,20 @@ const ohayo = (channel) => {
     const connection = connect(channel);
     connection.on(VoiceConnectionStatus.Ready, () => play(connection));
     connection.on(VoiceConnectionStatus.Destroyed, () => console.log('[voiceHandler/ohayo] Connection destroyed'));
+}
+
+const textToSpeech = (text) => {
+    const client = new textToSpeech.TextToSpeechClient();
+    const request = {
+        input: {text: text},
+        voice: {languageCode: 'th-TH', ssmlGender: 'FEMALE'},
+        audioConfig: {audioEncoding: 'MP3'},
+      };
+      const [response] = await client.synthesizeSpeech(request);
+      const writeFile = util.promisify(fs.writeFile);
+      await writeFile(outputFile, response.audioContent, 'binary');
+      console.log(`Audio content written to file: ${outputFile}`);
+      
 }
 
 module.exports = { connect, play, ohayo, autoOhayo }

@@ -5,7 +5,8 @@ const newObj = {}
 console.log(link)
 
 for (let item of link) {
-    newObj[item.id] = item.link
+    if('duplicate' in item) newObj[`${item.id}${item.duplicate}`] = item.link
+    else newObj[item.id] = item.link
 }
 
 

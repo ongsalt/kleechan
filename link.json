@@ -26,12 +26,16 @@
     {
         "id": "อ30103",
         "link": "meet.google.com/qer-psgd-smv",
-        "duplicate": "1"
+        "duplicate": 0
+    },
+    {
+        "id": "อ30103",
+        "link": "meet.google.com/nch-tqyf-rmy",
+        "duplicate": 1
     },
     {
         "id": "ค30223",
-        "link": "meet.google.com/aam-ggxr-yyo",
-        "duplicate": "2"
+        "link": "meet.google.com/aam-ggxr-yyo"
     },
     {
         "id": "ว30202",

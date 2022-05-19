@@ -70,7 +70,11 @@ function getSubject(option = 'n') { // change default option is next
 
 
 function formatSubject({ teacher, room, subjectId, subject, option }) {
-    let link = linkObj[subjectId];
+    let link;
+    if(subjectId.includes('อ30103')) {
+       if(teacher === 'จารุวัชร') link = linkObj['อ301031']
+       else link = linkObj['อ301030']
+    } else link = linkObj[subjectId];
     let paddingText;
 
     // console.log(`[scheduleHandler/formatSubject] data: ${teacher} ${room} ${subjectId} ${subject}`)

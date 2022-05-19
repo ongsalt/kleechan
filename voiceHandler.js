@@ -21,7 +21,7 @@ const play = (connection) => {
     const resource = createAudioResource(join(__dirname, 'OhayoOniiChan.mp3'), {
         inlineVolume: true
     });
-    resource.volume.setVolume(0.3)
+    resource.volume.setVolume(1)
     try {
         player.play(resource);
         connection.subscribe(player)
@@ -42,7 +42,7 @@ const autoOhayo = (client) => {
     const now = new Date();
     const minutes = (now.getUTCHours() + 7) * 60 + now.getUTCMinutes(); // cuz timezone exist
     const minutesLeft = 955 - minutes + 10;
-    const alertTimes = [505, 555, 605, 655, 705, 755, 805, 855, 905, 955];
+    const alertTimes = [510, 560, 610, 660, 710, 760, 810, 860, 910, 960];
 
     if (955 - minutes < 0) {
         console.log('[voiceHandler/autoOhayo] หมดวันแล้ว') 

@@ -7,9 +7,9 @@ const {
     VoiceConnectionStatus 
 } = require('@discordjs/voice');
 const { join } = require('node:path')
-const textToSpeech = require('@google-cloud/text-to-speech');
-const fs = require('fs');
-const util = require('util');
+// const textToSpeech = require('@google-cloud/text-to-speech');
+// const fs = require('fs');
+// const util = require('util');
 
 require('dotenv').config()
 
@@ -84,18 +84,18 @@ const ohayo = (channel) => {
     connection.on(VoiceConnectionStatus.Destroyed, () => console.log('[voiceHandler/ohayo] Connection destroyed'));
 }
 
-const textToSpeech = (text) => {
-    const client = new textToSpeech.TextToSpeechClient();
-    const request = {
-        input: {text: text},
-        voice: {languageCode: 'th-TH', ssmlGender: 'FEMALE'},
-        audioConfig: {audioEncoding: 'MP3'},
-      };
-      const [response] = await client.synthesizeSpeech(request);
-      const writeFile = util.promisify(fs.writeFile);
-      await writeFile(outputFile, response.audioContent, 'binary');
-      console.log(`Audio content written to file: ${outputFile}`);
+// const tts = async (text) => {
+//     const client = new textToSpeech.TextToSpeechClient();
+//     const request = {
+//         input: {text: text},
+//         voice: {languageCode: 'th-TH', ssmlGender: 'FEMALE'},
+//         audioConfig: {audioEncoding: 'MP3'},
+//       };
+//       const [response] = await client.synthesizeSpeech(request);
+//       const writeFile = util.promisify(fs.writeFile);
+//       await writeFile(outputFile, response.audioContent, 'binary');
+//       console.log(`Audio content written to file: ${outputFile}`);
       
-}
+// }
 
 module.exports = { connect, play, ohayo, autoOhayo }

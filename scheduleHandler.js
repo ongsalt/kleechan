@@ -24,20 +24,20 @@ function getDay() {
 function getSubject(option = 'n') { // change default option is next
     let padding = 1;
     //dev
-    const testObject = {
-        "teacher": null,
-        "room": null,
-        "subjectId": "โฮมรูม",
-        "subject": "โฮมรูม"
-    }
+    // const testObject = {
+    //     "teacher": null,
+    //     "room": null,
+    //     "subjectId": "โฮมรูม",
+    //     "subject": "โฮมรูม"
+    // }
 
-    return {
-        isEmbed: true,
-        embed: formatSubject({
-            ...testObject,
-            option
-        })
-    }
+    // return {
+    //     isEmbed: true,
+    //     embed: formatSubject({
+    //         ...testObject,
+    //         option
+    //     })
+    // }
 
     console.log(`[scheduleHandler/getSubject] option: ${option}`)
     if (option === 'n') {

@@ -102,8 +102,8 @@ function formatSubject({ teacher, room, subjectId, subject, option }) {
     //dev
     // link = rickroll
 
-    if (link && option != null) {
-        if (Math.random() < 0.1) link = rickroll
+    if (link) {
+        if (Math.random() < 0.1  && option != null) link = rickroll
         embed.setURL(link);
     } else {
         desc += '\n\n ไม่มีลิงค์';

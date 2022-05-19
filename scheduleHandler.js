@@ -109,6 +109,7 @@ function formatSubject({ teacher, room, subjectId, subject, option }) {
         desc += '\n\n ไม่มีลิงค์';
         embed.setColor('#ed3e3e')
     }
+    desc += ` ${link}`
     embed.setDescription(desc)
 
     return embed

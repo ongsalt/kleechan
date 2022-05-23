@@ -21,8 +21,11 @@ function getDay() {
     return now // 0 is sunday 6 is saturday
 }
 
-function getSubject(option = 'n') { // change default option is next
+function getSubject(option) { // change default option is next
     let padding = 1;
+    if(!option) {
+        option = 'n'
+    }
     //dev
     // const testObject = {
     //     "teacher": null,
@@ -61,9 +64,9 @@ function getSubject(option = 'n') { // change default option is next
 
     if (period === 4) return { isEmbed: false, reply: 'พัก' } // 5
     if (period < 0) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
-
+    
     const day = getDay() - 1; // also, array start at 0 | Sun is 0, array start at Mon
-    if (day === 0 || day === 6) return { isEmbed: false, reply: 'วันหยุด' }
+    if (day <= -1 || day >= 5) return { isEmbed: false, reply: 'วันหยุด' }
 
     console.log(`[scheduleHandler/period] day: ${day} period: ${period} padding: ${padding}`)
 

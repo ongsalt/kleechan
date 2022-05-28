@@ -30,8 +30,8 @@ function getSubject(option) { // change default option is next
     // const testObject = {
     //     "teacher": null,
     //     "room": null,
-    //     "subjectId": "โฮมรูม",
-    //     "subject": "โฮมรูม"
+    //     "subjectId": "อ30103",
+    //     "subject": "Eng"
     // }
 
     // return {
@@ -127,6 +127,7 @@ function formatSubject({ teacher, room, subjectId, subject, option }) {
     
     if (link) {
         if (Math.random() < 0.1  && option != null){
+        // if (true){
             embed.setURL(rickroll);
             desc += ` ${rickroller(link)}`
         } else {

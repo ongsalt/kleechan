@@ -15,7 +15,10 @@ client.once('ready', () => {
     console.log(`[main/onceReady] Ready`);
     // voiceChannel = client.channels.cache.find(c => c.id === process.env.CHANNEL_ID)
     // migrate to voiceHandler -> timeBased event later
-    autoOhayo(client)
+
+    // disable ohayo noti 
+    // autoOhayo(client)
+
     console.log('[main/onceReady] set up finished')
     if(process.env.device === 'development machine') {
         const presence = client.user.setActivity('code changes - Test build not for use', { type: 'WATCHING' })

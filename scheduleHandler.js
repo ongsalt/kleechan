@@ -126,9 +126,13 @@ function formatSubject({ teacher, room, subjectId, subject, option }) {
 
     
     if (link) {
-        if (Math.random() < 0.1  && option != null) link = rickroll
-        embed.setURL(link);
-        desc += ` ${link}`
+        if (Math.random() < 0.1  && option != null){
+            embed.setURL(rickroll);
+            desc += ` ${rickroller(link)}`
+        } else {
+            embed.setURL(link);
+            desc += ` ${link}`
+        }
     } else {
         desc += '\n\n ไม่มีลิงค์';
         embed.setColor('#ed3e3e')

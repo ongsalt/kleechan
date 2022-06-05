@@ -70,6 +70,8 @@ function getSubject(option) { // change default option is next
 
     console.log(`[scheduleHandler/period] day: ${day} period: ${period} padding: ${padding}`)
 
+    // day = 3
+    // period = 8
     return {
         isEmbed: true,
         embed: formatSubject({
@@ -82,7 +84,7 @@ function getSubject(option) { // change default option is next
 
 function formatSubject({ teacher, room, subjectId, subject, option }) {
     let link;
-    if(subjectId.includes('อ30103')) {
+    if(subjectId && subjectId.includes('อ30103')) {
        if(teacher === 'จารุวัชร') link = linkObj['อ301031']
        else link = linkObj['อ301030']
     } else link = linkObj[subjectId];

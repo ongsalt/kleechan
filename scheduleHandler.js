@@ -1,5 +1,5 @@
-const schedule = require('./schedule.json')
-const linkObj = require('./linkObj.json')
+const schedule = require('./newSchedule.json')
+const scheduleList = require('./scheduleList.json')
 const { MessageEmbed } = require('discord.js')
 const { rickroll, rickroller } = require('./Rickroll')
 
@@ -26,21 +26,6 @@ function getSubject(option) { // change default option is next
     if(!option) {
         option = 'n'
     }
-    //dev
-    // const testObject = {
-    //     "teacher": null,
-    //     "room": null,
-    //     "subjectId": "อ30103",
-    //     "subject": "Eng"
-    // }
-
-    // return {
-    //     isEmbed: true,
-    //     embed: formatSubject({
-    //         ...testObject,
-    //         option
-    //     })
-    // }
 
     console.log(`[scheduleHandler/getSubject] option: ${option}`)
     if (option === 'n') {
@@ -60,34 +45,36 @@ function getSubject(option) { // change default option is next
         }
     }
 
-    let period = currentPeriod() + padding - 1; // array start at 0
+    let period = currentPeriod() + padding  // array start at 0
 
     if (period === 4) return { isEmbed: false, reply: 'พัก' } // 5
     if (period < 0) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
+
+    period -= 1
     
     const day = getDay() - 1; // also, array start at 0 | Sun is 0, array start at Mon
     if (day <= -1 || day >= 5) return { isEmbed: false, reply: 'วันหยุด' }
 
     console.log(`[scheduleHandler/period] day: ${day} period: ${period} padding: ${padding}`)
 
-    // day = 3
-    // period = 8
+    const subject = scheduleList.find(each => schedule[day][period].includes(each.teacher))
+    console.log(subject)
+
     return {
         isEmbed: true,
         embed: formatSubject({
-            ...schedule[day][period],
+            ...subject,
             option
         })
     }
 }
 
 
-function formatSubject({ teacher, room, subjectId, subject, option }) {
-    let link;
-    if(subjectId && subjectId.includes('อ30103')) {
-       if(teacher === 'จารุวัชร') link = linkObj['อ301031']
-       else link = linkObj['อ301030']
-    } else link = linkObj[subjectId];
+function formatSubject({ teacher, room, subjectId, subject, link, option }) {
+    // if(subjectId && subjectId.includes('อ30103')) {
+    //    if(teacher === 'จารุวัชร') link = linkObj['อ301031']
+    //    else link = linkObj['อ301030']
+    // } else link = linkObj[subjectId];
     let paddingText = '';
 
     if(process.env.device) {
@@ -126,8 +113,8 @@ function formatSubject({ teacher, room, subjectId, subject, option }) {
         .setTitle(title)
         .setAuthor({ name: paddingText })
 
-    
     if (link) {
+        link = `https://${link}`
         if (Math.random() < 0  && option != null){
         // if (true){
             embed.setURL(rickroll);

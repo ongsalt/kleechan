@@ -38,7 +38,8 @@ function getSubject(option) { // change default option is next
         const embed = new MessageEmbed()
             .setTitle('ตารางเต็ม')
             .setColor('#2f61e0')
-            .setImage('https://i.imgur.com/yhbYFkE.jpg');
+            // .setImage('https://i.imgur.com/yhbYFkE.jpg');
+            .setImage('https://i.imgur.com/DJQNI8f.png')
         return {
             isEmbed: true,
             embed

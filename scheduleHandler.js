@@ -41,17 +41,23 @@ function getSubject(option) { // change default option is next
             // .setImage('https://i.imgur.com/yhbYFkE.jpg');
             .setImage('https://i.imgur.com/DJQNI8f.png')
         return {
-            isEmbed: true,
+            isEmbed: true,  
             embed
         }
     }
 
     let period = currentPeriod() + padding  // array start at 0
 
-    if (period === 4) return { isEmbed: false, reply: 'พัก' } // 5
+    if (period === 5) return { isEmbed: false, reply: 'พัก' } // 5
     if (period < 0) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
 
     period -= 1
+    if(period > 4) {
+        period -= 1
+    }
+
+    if (period < 8) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
+
     
     const day = getDay() - 1; // also, array start at 0 | Sun is 0, array start at Mon
     if (day <= -1 || day >= 5) return { isEmbed: false, reply: 'วันหยุด' }

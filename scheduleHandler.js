@@ -65,6 +65,7 @@ function getSubject(option) { // change default option is next
     if (day <= -1 || day >= 5) return { isEmbed: false, reply: 'วันหยุด' }
 
     console.log(`[scheduleHandler/period] day: ${day} period: ${period} padding: ${padding}`)
+    console.log(`[scheduleHandler/period] teacher: ${schedule[day][period]}`)
 
     const subject = scheduleList.find(each => schedule[day][period].includes(each.teacher))
     console.log(subject)

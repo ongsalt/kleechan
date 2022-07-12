@@ -1,130 +1,131 @@
 [
     {
-        "teacher": "สิริลักษณ์",
+        "teacher": "ครูสิริลักษณ์",
         "room": "2406",
         "subjectId": "ท30103",
-        "subject": "ไทย",
+        "subject": "Thai",
         "link": "meet.google.com/ohm-dgcp-dbo"
     },
     {
-        "teacher": "สมศักดิ์",
+        "teacher": "ครูสมศักดิ์",
         "room": "2406",
         "subjectId": "ค30104",
-        "subject": "คณิต",
+        "subject": "Mathematics",
         "link": "meet.google.com/aam-ggxr-yyo"
     },
     {
-        "teacher": "ศิริขวัญ",
+        "teacher": "ครูศิริขวัญ",
         "room": "1309",
         "subjectId": "ว30163",
-        "subject": "โลกศาสตร์",
+        "subject": "Geology",
         "link": "meet.google.com/jyj-kqtm-bbn"
     },
     {
-        "teacher": "ฉันทนา",
+        "teacher": "ครูฉันทนา",
         "room": "2406",
         "subjectId": "ส30103",
-        "subject": "ส30103",
+        "subject": "Economy",
         "link": "meet.google.com/qoq-qrpv-tsj"
     },
     {
-        "teacher": "วรายุทธ",
+        "teacher": "ครูวรายุทธ",
         "room": "2406",
         "subjectId": "พ30103",
-        "subject": "พละ",
+        "subject": "PE",
         "link": "meet.google.com/dop-ytyu-gpi"
     },
     {
-        "teacher": "รัตกร",
+        "teacher": "ครูรัตกร",
         "room": "ดนตรี",
         "subjectId": "ศ30103",
-        "subject": "ดนตรี",
+        "subject": "Music",
         "link": "meet.google.com/tri-jbvc-pqg"
     },
     {
-        "teacher": "เกสิณี",
+        "teacher": "ครูเกสิณี",
         "room": "2406",
         "subjectId": "อ30103",
-        "subject": "อังกฤษ",
+        "subject": "English (Writing)",
         "link": "meet.google.com/qer-psgd-smv"
     },
     {
-        "teacher": "จารุวัชร",
+        "teacher": "ครูสุชาดา",
         "room": "2406",
         "subjectId": "อ30103",
-        "subject": "อังกฤษ",
-        "link": "meet.google.com/nch-tqyf-rmy"
+        "subject": "English (Speaking and Listening)",
+        "link": "meet.google.com/qer-psgd-smv",
+        "Comment": "idk this one so use upper one instead"
     },
     {
-        "teacher": "สมศักดิ์",
+        "teacher": "ครูสมศักดิ์",
         "room": "2406",
         "subjectId": "ค30223",
-        "subject": "คณิต",
+        "subject": "Mathematics",
         "link": "meet.google.com/aam-ggxr-yyo"
     },
     {
-        "teacher": "อาภาศรี",
+        "teacher": "ครูอาภาศรี",
         "room": "1210",
         "subjectId": "ว30202",
-        "subject": "ฟิสิกส์",
+        "subject": "Physics",
         "link": "meet.google.com/csx-hnia-znz"
     },
     {
-        "teacher": "ณชมน",
+        "teacher": "ครูณชมน",
         "room": "1206",
         "subjectId": "ว30222",
-        "subject": "ว30222",
+        "subject": "Chemistry",
         "link": "meet.google.com/eon-upjb-bey"
     },
     {
-        "teacher": "อรรถพล",
+        "teacher": "ครูอรรถพล",
         "room": "1205",
         "subjectId": "ว30242",
-        "subject": "ชีววิทยา",
+        "subject": "Biology",
         "link": "meet.google.com/are-bdsi-qyh"
     },
     {
-        "teacher": "เอนก",
+        "teacher": "ครูเอนก",
         "room": "คอม A",
         "subjectId": "ว30282",
-        "subject": "คอม",
+        "subject": "Computer Project",
         "link": "meet.google.com/wkx-iwez-hfn"
     },
     {
-        "teacher": "อุบลวรรณ",
+        "teacher": "ครูอุบลวรรณ",
         "room": "2406",
         "subjectId": "จ30201",
-        "subject": "จีน",
+        "subject": "Chinese langauge",
         "link": "meet.google.com/weu-urxt-ifk"
     },
     {
         "subjectId": "ชุมนุม",
-        "teacher": "ชุมนุม",
-        "subject": "ชุมนุม"
+        "teacher": "ครูชุมนุม",
+        "subject": "Clubs"
     },
     {
         "subjectId": "โครงงาน",
-        "teacher": "โครงงาน",
-        "subject": "โครงงาน"
+        "teacher": "ครูโครงงาน",
+        "subject": "Projects"
     },
     {
         "subjectId": "วิชาเลือก",
-        "teacher": "วิชาเลือก",
-        "subject": "วิชาเลือก"
+        "teacher": "ครูวิชาเลือก",
+        "subject": "Japanese langauge"
     },
     {
         "subjectId": "ว่าง",
-        "teacher": "ว่าง",
-        "subject": "ว่าง"
+        "teacher": "ครูว่าง",
+        "subject": "Free"
     },
     {
         "subjectId": "โฮมรูม",
-        "teacher": "โฮมรูม",
-        "subject": "โฮมรูม"
+        "teacher": "ครูโฮมรูม",
+        "subject": "Homeroom"
     },
     {
         "subjectId": "บรรยาย",
-        "teacher": "บรรยาย",
-        "subject": "บรรยาย"
+        "teacher": "ครูบรรยาย",
+        "subject": "Narrate"
     }
 ]

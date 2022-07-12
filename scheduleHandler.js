@@ -48,7 +48,9 @@ function getSubject(option) { // change default option is next
 
     let period = currentPeriod() + padding  // array start at 0
 
-    if (period === 5) return { isEmbed: false, reply: 'พัก' } // 5
+    console.log(`[scheduleHandler/getSubject] period: ${period}`)
+
+    if (period === 4) return { isEmbed: false, reply: 'พัก' } // 5
     if (period < 0) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
 
     period -= 1
@@ -56,7 +58,7 @@ function getSubject(option) { // change default option is next
         period -= 1
     }
 
-    if (period < 8) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
+    if (period > 8) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
 
     
     const day = getDay() - 1; // also, array start at 0 | Sun is 0, array start at Mon

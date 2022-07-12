@@ -35,7 +35,7 @@ client.on('interactionCreate', async interaction => {
     if (commandName === 'ping') await interaction.reply(`Hello from ${process.env.device || 'Heroku'}`)
     if (commandName === 'test') await interaction.reply('Bruh')
     if (commandName === 's') {
-        const option = interaction.options.getString('argument') // เลือกคาบ
+        const option = interaction.options.getString('เลือกคาบ') // argument
         const msg = schedule(option)
         if (msg.isEmbed) await interaction.reply({ embeds: [msg.embed] })
         else await interaction.reply(msg.reply)

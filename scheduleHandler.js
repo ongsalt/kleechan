@@ -53,11 +53,11 @@ function getSubject(option) { // change default option is next
     if (period === 4) return { isEmbed: false, reply: 'พัก' } // 5
     
     period -= 1
-    if (period < 0) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
     if(period > 4) {
         period -= 1
     }
-
+    
+    if (period < 0) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
     if (period > 8) return { isEmbed: false, reply: 'นอกเวลาเรียน' }
 
     

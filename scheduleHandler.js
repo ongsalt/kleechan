@@ -90,7 +90,7 @@ function formatSubject({ teacher, room, subjectId, subject, link, option }) {
     if(process.env.device) {
         paddingText += 'Test - '
     }
-    // console.log(`[scheduleHandler/formatSubject] data: ${teacher} ${room} ${subjectId} ${subject}`)
+    console.log(`[scheduleHandler/formatSubject] data: ${teacher} ${room} ${subjectId} ${subject}`)
     switch (option) {
         case 'c':
             paddingText += 'คาบเรียนปัจจุบัน';

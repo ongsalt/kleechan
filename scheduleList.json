@@ -104,6 +104,12 @@
         "subject": "Clubs"
     },
     {
+        "subjectId": "แนะแนว",
+        "teacher": "ครูกานต์สินี",
+        "room": "2406",
+        "subject": "แนะแนว"
+    },
+    {
         "subjectId": "โครงงาน",
         "teacher": "ครูโครงงาน",
         "subject": "Projects"

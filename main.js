@@ -22,7 +22,7 @@ client.once('ready', () => {
     console.log('[main/onceReady] set up finished')
     if(process.env.device === 'development machine') {
         // const presence = client.user.setActivity('code changes - Test build not for use', { type: 'WATCHING' })
-        const presence = client.user.setActivity('code changes - Removing rickroll', { type: 'WATCHING' })
+        const presence = client.user.setActivity('rewrite becuase i can', { type: 'WATCHING' })
         console.log(`Activity set to ${presence.activities[0].name}`)
     }
 

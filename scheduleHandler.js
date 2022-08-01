@@ -51,7 +51,7 @@ function getSubject(option) { // change default option is next
 
     console.log(`[scheduleHandler/getSubject] period: ${period}`)
 
-    if (period === 4) return { isEmbed: false, reply: 'พัก' } // 5
+    if (period === 5) return { isEmbed: false, reply: 'พัก' } // 5
     
     period -= 1
     if(period > 4) {

@@ -25,7 +25,7 @@ client.once('ready', () => {
         const presence = client.user.setActivity('rewrite becuase I can', { type: 'WATCHING' })
         console.log(`Activity set to ${presence.activities[0].name}`)
     } else {
-        const presence = client.user.setActivity('keep in mind that this is not yet done', { type: 'WATCHING' })
+        // const presence = client.user.setActivity('keep in mind that this is not yet done', { type: 'WATCHING' })
     }
 
 });
